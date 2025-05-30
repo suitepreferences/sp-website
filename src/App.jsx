@@ -549,7 +549,7 @@ function ContactPage() {
           Send Message
         </button>
         {status && (
-          <p className={`mt-4 text-center text-lg ${status.includes('sent') ? 'text-green-600' : 'text-red-600'} dark:text-green-400 dark:text-red-400`}>
+          <p className={`mt-4 text-center text-lg ${status.includes('sent') ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
             {status}
           </p>
         )}
