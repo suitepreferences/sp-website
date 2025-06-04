@@ -6,6 +6,9 @@ import ChromeLogo from './assets/icons/sp_chrome_logo_nobg.png';
 
 // Import Lucide React icons
 import {
+  Sparkles,
+  Unlock,
+  Key,
   Shield,
   Mail,
   Home,
@@ -114,7 +117,7 @@ function Header({ onNavigate }) {
             alt="SuitePreferences Logo"
             className="h-10 w-10"
           />
-          <span className="text-2xl font-bold text-ns-med-blue dark:text-ns-light-blue">Suite<span className="font-light">Preferences<sup className="text-xs">™</sup></span></span>
+          <span className="text-2xl font-extrabold text-ns-med-blue dark:text-ns-light-blue tracking-tight">Suite<span className="font-normal tracking-tighter text-ns-gold">Preferences<sup className="text-xs">™</sup></span></span>
         </div>
 
         {/* Desktop Navigation */}
@@ -214,28 +217,43 @@ function HomePage({ onNavigate }) { // Adjusted prop name
       <section className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-20 px-4 rounded-b-3xl shadow-xl">
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
-            Unlock the NetSuite UX with <span className="text-yellow-300">Suite<span className="font-light">Preferences<sup className="text-3xl">™</sup></span></span>
+            Unlock
+            <span className="inline-block mx-2 align-[-.1em]">
+              <Unlock className="h-[1.1em] w-[1.1em] text-ns-gold" />
+            </span>
+            the NetSuite UX with
+            <div className="text-ns-gold tracking-tight">
+              Suite
+              <span className="font-light">
+                Preferences<sup className="text-3xl">™</sup>
+              </span>
+            </div>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up delay-100">
-            Boost Productivity & Comfort with Features like <span className="font-bold text-yellow-300">Suite<span className="font-light">Glow<sup className="text-xs">™</sup></span></span> Dark Themes and Fonts, Real-time Dashboards by <span className="text-yellow-300">Portlet Refresher</span>, and More.
+          <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in-up delay-100 tracking-tight">
+            Boost Productivity & Comfort with Features like <span className="font-bold text-ns-gold tracking-tighter">Suite<span className="font-light">Glow<sup className="text-xs">™</sup></span></span> Dark Themes and Fonts, Real-time Dashboards by <span className="font-bold text-ns-gold tracking-tighter">Portlet<span className="font-light">Refresher</span></span>, and More.
           </p>
           <button
             onClick={handleGetExtensionClick}
-            className="inline-flex items-center px-8 py-4 bg-white text-indigo-700 font-bold text-lg rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
+            className="inline-flex items-center px-4 py-4 bg-white text-ns-med-blue font-bold text-lg rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
           >
             <img
               src={ChromeLogo}
               alt="Chrome Logo"
               className="w-10 h-10 mr-3"
             />
-            Get&nbsp;<span className="font-bold">Suite<span className="font-normal">Preferences<sup className="text-xs">™</sup></span></span>&nbsp;Now
+            Get&nbsp;<span className="font-extrabold text-ns-med-blue">Suite<span className="font-normal text-ns-gold">Preferences<sup className="text-xs">™</sup></span></span>&nbsp;Now
           </button>
         </div>
       </section>
 
       {/* Features Section - Applied dark mode heading and feature card styling */}
       <section className="container mx-auto px-4 py-12">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">Key Features that Elevate Your NetSuite UX</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          <span className="inline-flex items-center mr-2 align-[-.1em]">
+            <Key className="h-8 w-8 text-ns-med-blue dark:text-ns-light-blue" />
+          </span>
+          Key Features that Elevate Your NetSuite UX
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <FeatureCard
             icon={<Lightbulb className="h-10 w-10 text-indigo-600 dark:text-indigo-400" />}
@@ -272,7 +290,12 @@ function HomePage({ onNavigate }) { // Adjusted prop name
 
       {/* Products Sold / Pricing Section - Applied dark mode heading and pricing card styling */}
       <section id="pricing" className="container mx-auto px-4 py-12 scroll-mt-20"> {/* Added scroll-mt-20 */}
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">Choose Your <span className="font-bold">Suite</span><span className="font-light">Preferences<sup className="text-xl">™</sup></span> Plan</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          <span className="inline-block mx-2 align-[-.2em]">
+            <Sparkles className="h-[1.1em] w-[1.1em] text-ns-gold" />
+          </span>
+          Choose Your <span className="font-bold tracking-tight text-ns-med-blue dark:text-ns-light-blue">Suite</span><span className="font-light tracking-tighter text-ns-gold">Preferences<sup className="text-xl">™</sup></span> Plan
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Free Plan */}
           <PricingCard
@@ -303,7 +326,7 @@ function HomePage({ onNavigate }) { // Adjusted prop name
               { text: "10+ SuiteGlow™ Themes", included: true },
               { text: "20+ SuiteGlow™ Fonts", included: true },
               { text: "Records XML Viewer Slideout", included: true },
-              { text: "New Features⁺⁺", included: true },
+              { text: "New Features†", included: true },
               { text: "1 User License", included: true },
             ]}
             buttonText="Get 14-day Free Trial"
@@ -322,8 +345,8 @@ function HomePage({ onNavigate }) { // Adjusted prop name
               { text: "10+ SuiteGlow™ Themes", included: true },
               { text: "20+ SuiteGlow™ Fonts", included: true },
               { text: "Records XML Viewer Slideout", included: true },
-              { text: "New Features⁺⁺", included: true },
-              { text: "50+ User Licenses⁺", included: true },
+              { text: "New Features†", included: true },
+              { text: "50+ User Licenses‡", included: true },
             ]}
             buttonText="Get Premium"
             buttonClass="bg-purple-600 text-white hover:bg-purple-700"
@@ -331,15 +354,15 @@ function HomePage({ onNavigate }) { // Adjusted prop name
           />
         </div>
         <div className="max-w-6xl mx-auto text-center mt-8">
-          <p className="text-gray-600 dark:text-gray-300 text-sm">⁺ The Enterprise Pro plan uses NetSuite account level validation. An active Enterprise Pro subscription allows for up to 50 users within a single NetSuite account to use all <span className="font-bold">Suite</span><span className="font-light">Preferences™</span> features. NetSuite accounts with over 50 users, please<span
+          <p className="text-gray-600 dark:text-gray-300">† As new features are added to <span className="font-extrabold text-ns-med-blue dark:text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span>, they will be immediately available to you by simply updating the extension.</p>
+        </div>
+        <div className="max-w-6xl mx-auto text-center mt-8">
+          <p className="text-gray-600 dark:text-gray-300">‡ The Enterprise Pro plan uses NetSuite account validation. An active subscription allows for up to 50 users within a single NetSuite account to use all <span className="font-extrabold text-ns-med-blue dark:text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span> features. NetSuite accounts with over 50 users, please<span
               className="font-medium text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer ml-1"
               onClick={() => onNavigate('contact')}
             >
               contact us
             </span> for special pricing.</p>
-        </div>
-        <div className="max-w-6xl mx-auto text-center mt-8">
-          <p className="text-gray-600 dark:text-gray-300 text-sm">⁺⁺ We are continually improving our <span className="font-bold">Suite</span><span className="font-light">Preferences™</span> features offerering. As we add new features, they will be immediately available to you upon updating the Chrome Extension.</p>
         </div>
       </section>
 
@@ -370,7 +393,7 @@ function HomePage({ onNavigate }) { // Adjusted prop name
 // Feature Card Component - Applied dark mode background, shadow, title, and description text
 function FeatureCard({ icon, title, description }) {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 dark:bg-gray-800 dark:shadow-2xl">
+    <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 dark:bg-gray-800 dark:shadow-2xl">
       <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2 dark:text-white">{title}</h3>
       <p className="text-gray-600 dark:text-gray-300">{description}</p>
@@ -381,7 +404,7 @@ function FeatureCard({ icon, title, description }) {
 // Pricing Card Component - Applied dark mode background, border, text, and feature list item colors
 function PricingCard({ title, price, period, features, buttonText, buttonClass, isPopular, onClick, originalPrice }) {
   return (
-    <div className={`bg-white p-8 rounded-xl shadow-lg flex flex-col items-center border-2 ${isPopular ? 'border-indigo-600 dark:border-indigo-400 scale-105' : 'border-gray-100 dark:border-gray-700'} transition-all duration-300 hover:shadow-xl dark:bg-gray-800 dark:shadow-2xl`}>
+    <div className={`bg-white p-8 rounded-xl shadow-lg flex flex-col items-center border-2 ${isPopular ? 'border-indigo-600 dark:border-indigo-400' : 'border-gray-100 dark:border-gray-700'} transition-all duration-300 hover:shadow-xl hover:scale-105 dark:bg-gray-800 dark:shadow-2xl`}>
       {isPopular && (
         <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 -mt-12 shadow-md">
           Most Popular
@@ -589,7 +612,7 @@ function Footer({ onNavigate }) {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* About */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-4 dark:text-white">SuitePreferences</h3>
+          <h3 className="text-xl font-bold text-white mb-4 dark:text-white"><span className="font-extrabold text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span></h3>
           <p className="text-gray-400 dark:text-gray-500">
             Enhancing your NetSuite UX with customization and productivity tools.
           </p>
@@ -633,7 +656,7 @@ function Footer({ onNavigate }) {
       </div>
 
       <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm dark:border-gray-700 dark:text-gray-600">
-        &copy; {new Date().getFullYear()} SuitePreferences. All rights reserved.
+        &copy; {new Date().getFullYear()} <span className="font-extrabold text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span>. All rights reserved.
       </div>
     </footer>
   );
