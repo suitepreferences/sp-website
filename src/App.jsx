@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
-import { useTheme } from './ThemeContext';
-import SuitePreferencesLogo from './assets/icons/sp_logo_nobg_large.svg';
-import ChromeLogo from './assets/icons/sp_chrome_logo_nobg.png';
+import { useTheme } from './ThemeContext'; // Assuming ThemeContext is correctly set up
+import SuitePreferencesLogo from './assets/icons/sp_logo_nobg_large.svg'; // Assuming these paths are correct
+import ChromeLogo from './assets/icons/sp_chrome_logo_nobg.png'; // Assuming these paths are correct
 
 // Import Lucide React icons
 import {
+  Linkedin,
   Sparkles,
   Unlock,
   Key,
@@ -26,10 +27,88 @@ import {
   MapPin
 } from 'lucide-react';
 
+// --- Admin Login Configuration Flag ---
+// Set this to true to enable the admin login popup on page load.
+// Set to false to disable it.
+const SHOW_ADMIN_POPUP = true; // Easily toggle this flag
+
+// --- AdminLoginPage Component ---
+// This component renders the admin login form as a modal.
+function AdminLoginPage({ onLoginSuccess }) {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  // Handles the submission of the login form.
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Basic validation for admin credentials.
+    if (username === 'admin' && password === 'password') {
+      onLoginSuccess(); // Call the parent's success handler
+    } else {
+      setError('Invalid username or password.'); // Display error message
+    }
+  };
+
+  return (
+    // Overlay for the modal, covers the entire screen with a semi-transparent dark background.
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[100]">
+      {/* Modal content container */}
+      <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-md mx-4 transform transition-all duration-300 scale-100 opacity-100">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">Pre-Launch Login</h2>
+        <p className="my-6 text-gray-900 dark:text-white mb-6">SuitePreferences™ is not yet live. You can preview site content, but links may not work properly.</p>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Username input field */}
+          <div>
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Username</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              required
+            />
+          </div>
+          {/* Password input field */}
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              required
+            />
+          </div>
+          {/* Error message display */}
+          {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+          {/* Submit button */}
+          <button
+            type="submit"
+            className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 // Main App Component
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home'); // State to manage current page
   const [pendingScrollId, setPendingScrollId] = useState(null); // New state for pending scroll
+  const [showAdminLogin, setShowAdminLogin] = useState(false); // State to control admin login popup visibility
+
+  // Effect to show admin login popup on initial load if the flag is true.
+  useEffect(() => {
+    if (SHOW_ADMIN_POPUP) {
+      setShowAdminLogin(true);
+    }
+  }, []); // Empty dependency array ensures this runs only once on mount.
 
   // Centralized navigation handler
   const handleNavigation = (target) => {
@@ -83,6 +162,9 @@ export default function App() {
   return (
     // Applied dark mode classes to the main container
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800 antialiased dark:bg-gray-900 dark:text-gray-200">
+      {/* Conditionally render the AdminLoginPage if showAdminLogin is true */}
+      {showAdminLogin && <AdminLoginPage onLoginSuccess={() => setShowAdminLogin(false)} />}
+
       <Header onNavigate={handleNavigation} /> {/* Pass the new handler */}
       <main className="flex-grow">
         {renderPage()}
@@ -117,7 +199,7 @@ function Header({ onNavigate }) {
             alt="SuitePreferences Logo"
             className="h-10 w-10"
           />
-          <span className="text-2xl font-extrabold text-ns-med-blue dark:text-ns-light-blue tracking-tight">Suite<span className="font-normal tracking-tighter text-ns-gold">Preferences<sup className="text-xs">™</sup></span></span>
+          <span className="text-3xl font-extrabold text-ns-med-blue dark:text-ns-light-blue tracking-tight">Suite<span className="font-normal tracking-tighter text-ns-gold">Preferences<sup className="text-xs">™</sup></span></span>
         </div>
 
         {/* Desktop Navigation */}
@@ -609,10 +691,10 @@ function ContactPage() {
 function Footer({ onNavigate }) {
   return (
     <footer className="bg-gray-900 text-gray-300 py-12 px-4 rounded-t-3xl shadow-inner dark:bg-gray-950 dark:text-gray-400">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* About */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-4 dark:text-white"><span className="font-extrabold text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span></h3>
+          <h3 className="text-3xl font-bold text-white mb-4 dark:text-white"><span className="font-extrabold text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span></h3>
           <p className="text-gray-400 dark:text-gray-500">
             Enhancing your NetSuite UX with customization and productivity tools.
           </p>
@@ -623,40 +705,48 @@ function Footer({ onNavigate }) {
           <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <button onClick={() => onNavigate('home')} className="text-gray-400 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md p-1 -ml-1 dark:text-gray-400 dark:hover:text-white">Home</button>
+              <button onClick={() => onNavigate('home')} className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 rounded-md p-1 -ml-1">Home</button>
             </li>
             <li>
-              <button onClick={() => onNavigate('#pricing')} className="text-gray-400 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md p-1 -ml-1 dark:text-gray-400 dark:hover:text-white">Pricing</button>
+              <button onClick={() => onNavigate('#pricing')} className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 rounded-md p-1 -ml-1">Pricing</button>
             </li>
             <li>
-              <button onClick={() => onNavigate('privacy')} className="text-gray-400 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md p-1 -ml-1 dark:text-gray-400 dark:hover:text-white">Privacy Policy</button>
+              <button onClick={() => onNavigate('privacy')} className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 rounded-md p-1 -ml-1">Privacy Policy</button>
             </li>
             <li>
-              <button onClick={() => onNavigate('contact')} className="text-gray-400 hover:text-white transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md p-1 -ml-1 dark:text-gray-400 dark:hover:text-white">Contact Us</button>
+              <button onClick={() => onNavigate('contact')} className="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 rounded-md p-1 -ml-1">Contact Us</button>
             </li>
           </ul>
         </div>
 
-        {/* Contact Info */}
+        {/* Get In Touch */}
         <div>
           <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Get in Touch</h3>
           <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
             <Mail className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
-            <a href="mailto:caleb@suitepreferences.com" className="hover:underline dark:text-gray-400 dark:hover:text-white">caleb@suitepreferences.com</a>
+            <a href="mailto:caleb@suitepreferences.com" className="text-gray-400 hover:text-white transition-colors duration-200">caleb@suitepreferences.com</a>
           </p>
           <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
             <Phone className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
-            +1 (512) 484-3522
+            <a href='tel:15124843522' className="text-gray-400 hover:text-white transition-colors duration-200">+1 (512) 484-3522</a>
           </p>
           <p className="text-gray-400 flex items-center dark:text-gray-400">
             <MapPin className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
-            Austin, TX
+            <a href="https://www.google.com/maps/place/Belton,+TX" className="text-gray-400 hover:text-white transition-colors duration-200">Belton, TX</a>
+          </p>
+        </div>
+
+        {/* Social */}
+        <div>
+          <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Connect</h3>
+          <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
+            <Linkedin className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
+            <a href="https://www.linkedin.com/company/107099086/admin/dashboard/" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">LinkedIn</a>
           </p>
         </div>
       </div>
-
-      <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm dark:border-gray-700 dark:text-gray-600">
-        &copy; {new Date().getFullYear()} <span className="font-extrabold text-ns-light-blue">Suite</span><span className="font-normal text-ns-gold">Preferences™</span>. All rights reserved.
+      <div className="text-center text-gray-500 text-sm mt-12 border-t border-gray-800 pt-8 dark:border-gray-700">
+        &copy; {new Date().getFullYear()} SuitePreferences™. All rights reserved.
       </div>
     </footer>
   );
