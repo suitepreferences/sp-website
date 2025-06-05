@@ -719,19 +719,12 @@ function ContactPage() {
           <Phone className="h-8 w-8 text-purple-600 dark:text-purple-400" />
           <div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Phone</h3>
-            <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-lg shadow-sm md:col-span-2 dark:bg-gray-700 dark:shadow-lg">
-          <MapPin className="h-8 w-8 text-green-600 dark:text-green-400" />
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Address</h3>
-            <p className="text-gray-600 dark:text-gray-300">123 Extension Ave, Suite 100, Browser City, BC 98765</p>
+            <p className="text-gray-600 dark:text-gray-300">+1 (512) 677-9899</p>
           </div>
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center dark:text-white">Send Us a Message</h2>
+      <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center dark:text-white">Send a Message</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">
@@ -845,14 +838,14 @@ function Footer({ onNavigate }) {
           <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Get in Touch</h3>
           <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
             <Mail className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
-            <a href="mailto:caleb@suitepreferences.com" className="text-gray-400 hover:text-white transition-colors duration-200">
-              caleb@suitepreferences.com
+            <a href="mailto:info@suitepreferences.com" className="text-gray-400 hover:text-white transition-colors duration-200">
+              info@suitepreferences.com
             </a>
           </p>
           <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
             <Phone className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
-            <a href="tel:15124843522" className="text-gray-400 hover:text-white transition-colors duration-200">
-              +1 (512) 484-3522
+            <a href="tel:15126779899" className="text-gray-400 hover:text-white transition-colors duration-200">
+              +1 (512) 677-9899
             </a>
           </p>
           <p className="text-gray-400 flex items-center dark:text-gray-400">
