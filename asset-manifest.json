@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.8dbb2e4e.css",
-    "main.js": "./static/js/main.66312b0c.js",
-    "static/js/453.70c31974.chunk.js": "./static/js/453.70c31974.chunk.js",
-    "static/media/sp_logo_nobg_large.svg": "./static/media/sp_logo_nobg_large.b3fae886ebb29d9467946e9446b879a8.svg",
-    "static/media/sp_chrome_logo_nobg.png": "./static/media/sp_chrome_logo_nobg.9420d4a3f629ab89be4d.png",
-    "index.html": "./index.html",
-    "main.8dbb2e4e.css.map": "./static/css/main.8dbb2e4e.css.map",
-    "main.66312b0c.js.map": "./static/js/main.66312b0c.js.map",
-    "453.70c31974.chunk.js.map": "./static/js/453.70c31974.chunk.js.map"
+    "main.css": "/www.suitepreferences.com/static/css/main.8dbb2e4e.css",
+    "main.js": "/www.suitepreferences.com/static/js/main.66a66c11.js",
+    "static/js/453.70c31974.chunk.js": "/www.suitepreferences.com/static/js/453.70c31974.chunk.js",
+    "static/media/sp_logo_nobg_large.svg": "/www.suitepreferences.com/static/media/sp_logo_nobg_large.b3fae886ebb29d9467946e9446b879a8.svg",
+    "static/media/sp_chrome_logo_nobg.png": "/www.suitepreferences.com/static/media/sp_chrome_logo_nobg.9420d4a3f629ab89be4d.png",
+    "index.html": "/www.suitepreferences.com/index.html",
+    "main.8dbb2e4e.css.map": "/www.suitepreferences.com/static/css/main.8dbb2e4e.css.map",
+    "main.66a66c11.js.map": "/www.suitepreferences.com/static/js/main.66a66c11.js.map",
+    "453.70c31974.chunk.js.map": "/www.suitepreferences.com/static/js/453.70c31974.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8dbb2e4e.css",
-    "static/js/main.66312b0c.js"
+    "static/js/main.66a66c11.js"
   ]
 }
