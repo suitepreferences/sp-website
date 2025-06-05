@@ -84,7 +84,6 @@ function PreLivePage({ onLoginSuccess }) {
     e.preventDefault();
     // Validate if the acknowledgment checkbox is checked
     if (isAcknowledged) {
-      // <--- Modified validation logic
       onLoginSuccess(); // Call the parent's success handler
     } else {
       setError("You must acknowledge the pre-live preview conditions to proceed.");
@@ -219,9 +218,9 @@ export default function App() {
     <div className="min-h-screen bg-gray-50 font-sans text-gray-800 antialiased dark:bg-gray-900 dark:text-gray-200">
       {/* Conditionally render the PreLivePage if showPreLiveNotice is true */}
       {showPreLiveNotice && <PreLivePage onLoginSuccess={() => setshowPreLiveNotice(false)} />}
-      <Header onNavigate={handleNavigation} /> {/* Pass the new handler */}
+      <Header onNavigate={handleNavigation} />
       <main className="flex-grow">{renderPage()}</main>
-      <Footer onNavigate={handleNavigation} /> {/* Pass the new handler */}
+      <Footer onNavigate={handleNavigation} />
     </div>
   );
 }
@@ -238,10 +237,9 @@ function Header({ onNavigate }) {
   };
 
   return (
-    // Applied dark mode classes to header background and shadow
     <header className="bg-white shadow-sm sticky top-0 z-50 dark:bg-gray-800 dark:shadow-lg transition-colors duration-300">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo/Site Title - Applied dark mode text color, hover effect, and circular image */}
+        {/* Logo/Site Title */}
         <div className="flex items-center space-x-2 cursor-pointer transform transition-transform duration-300 hover:scale-105" onClick={() => handleNavClickWrapper("home")}>
           <img src={SuitePreferencesLogo} alt="SuitePreferences Logo" className="h-10 w-10" />
           <span className="text-3xl font-extrabold text-ns-med-blue dark:text-ns-light-blue tracking-tight">
@@ -262,7 +260,7 @@ function Header({ onNavigate }) {
           >
             {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
           </button>
-          {/* Nav Items - Applied dark mode text and hover colors */}
+          {/* Nav Items */}
           <NavItem onClick={() => handleNavClickWrapper("home")} icon={<Home className="h-5 w-5" />}>
             Home
           </NavItem>
@@ -284,7 +282,7 @@ function Header({ onNavigate }) {
           </button>
         </div>
 
-        {/* Mobile Menu Button - Applied dark mode text and hover colors */}
+        {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -295,7 +293,7 @@ function Header({ onNavigate }) {
         </div>
       </nav>
 
-      {/* Mobile Menu - Applied dark mode background and border */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 py-4 dark:bg-gray-800 dark:border-gray-700">
           <ul className="flex flex-col items-center space-y-4">
@@ -335,7 +333,7 @@ function Header({ onNavigate }) {
   );
 }
 
-// Navigation Item for Desktop - Applied dark mode text and hover colors
+// Navigation Item for Desktop
 function NavItem({ onClick, children, icon }) {
   return (
     <button
@@ -348,7 +346,7 @@ function NavItem({ onClick, children, icon }) {
   );
 }
 
-// Navigation Item for Mobile - Applied dark mode text and hover colors
+// Navigation Item for Mobile
 function MobileNavItem({ onClick, children, icon }) {
   return (
     <button
@@ -369,7 +367,7 @@ function HomePage({ onNavigate }) {
 
   return (
     <div className="space-y-16 py-12">
-      {/* Hero Section - Text already white, no change needed for dark mode */}
+      {/* Hero Section */}
       <section className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white py-20 px-4 rounded-b-3xl shadow-xl">
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
@@ -416,7 +414,7 @@ function HomePage({ onNavigate }) {
         </div>
       </section>
 
-      {/* Features Section - Applied dark mode heading and feature card styling */}
+      {/* Features Section */}
       <section className="container mx-auto px-4 py-12">
         <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
           <span className="inline-flex items-center mr-2 align-[-.1em]">
@@ -458,7 +456,7 @@ function HomePage({ onNavigate }) {
         </div>
       </section>
 
-      {/* Products Sold / Pricing Section - Applied dark mode heading and pricing card styling */}
+      {/* Products Sold / Pricing Section */}
       <section id="pricing" className="container mx-auto px-4 py-12 scroll-mt-20">
         {" "}
         {/* Added scroll-mt-20 */}
@@ -548,7 +546,7 @@ function HomePage({ onNavigate }) {
         </div>
       </section>
 
-      {/* Call to Action Section - Text already white, no change needed for dark mode */}
+      {/* Call to Action Section */}
       <section className="bg-indigo-700 text-white py-16 px-4 rounded-t-3xl shadow-xl">
         <div className="container mx-auto text-center max-w-3xl">
           <h2 className="text-4xl font-bold mb-6">Ready to level up your NetSuite UX?</h2>
@@ -566,7 +564,7 @@ function HomePage({ onNavigate }) {
   );
 }
 
-// Feature Card Component - Applied dark mode background, shadow, title, and description text
+// Feature Card Component
 function FeatureCard({ icon, title, description }) {
   return (
     <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 dark:bg-gray-800 dark:shadow-2xl">
@@ -577,7 +575,7 @@ function FeatureCard({ icon, title, description }) {
   );
 }
 
-// Pricing Card Component - Applied dark mode background, border, text, and feature list item colors
+// Pricing Card Component
 function PricingCard({ title, price, period, features, buttonText, buttonClass, isPopular, onClick, originalPrice }) {
   return (
     <div
@@ -615,7 +613,7 @@ function PricingCard({ title, price, period, features, buttonText, buttonClass, 
   );
 }
 
-// Privacy Page Component - Applied dark mode background, shadow, headings, paragraph, list, and link colors
+// Privacy Page Component
 function PrivacyPage() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl bg-white shadow-lg rounded-xl my-8 dark:bg-gray-800 dark:shadow-2xl">
@@ -675,107 +673,131 @@ function PrivacyPage() {
   );
 }
 
-// Contact Page Component - Applied dark mode background, shadow, headings, paragraph, info card styling, form input styling
+// Contact Page Component
 function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Sending...");
-    // In a real application, you would send this data to a backend server
-    // For this example, we'll just simulate a successful submission
-    console.log("Form submitted:", formData);
+    setStatus(""); // Clear previous status
+    setLoading(true);
 
-    setTimeout(() => {
-      setStatus("Message sent successfully! We will get back to you soon.");
-      setFormData({ name: "", email: "", message: "" }); // Clear form
-    }, 1500);
+    // Basic validation
+    if (!name || !email || !message) {
+      setStatus("error");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("https://forms.suitepreferences.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        // Clear form fields on success
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl bg-white shadow-lg rounded-xl my-8 dark:bg-gray-800 dark:shadow-2xl">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center dark:text-white">Contact Us</h1>
-      <p className="text-lg text-gray-600 mb-8 text-center dark:text-gray-300">Have questions about SuitePreferences or need support? We're here to help!</p>
+      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center dark:text-white">
+        <Mail className="inline-block h-10 w-10 text-ns-med-blue dark:text-ns-light-blue mr-3 align-middle" />
+        Contact Us
+      </h1>
+      <p className="text-center text-lg text-gray-700 dark:text-gray-300 mb-8">We'd love to hear from you! Please fill out the form below to get in touch.</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-lg shadow-sm dark:bg-gray-700 dark:shadow-lg">
-          <Mail className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Email Support</h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              <a href="mailto:support@suitepreferences.com" className="text-indigo-600 hover:underline dark:text-indigo-400">
-                support@suitepreferences.com
-              </a>
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-lg shadow-sm dark:bg-gray-700 dark:shadow-lg">
-          <Phone className="h-8 w-8 text-purple-600 dark:text-purple-400" />
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Phone</h3>
-            <p className="text-gray-600 dark:text-gray-300">+1 (512) 677-9899</p>
-          </div>
-        </div>
-      </div>
-
-      <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center dark:text-white">Send a Message</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">
-            Your Name
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Name
           </label>
           <input
             type="text"
             id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-indigo-400 dark:focus:border-indigo-400"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">
-            Your Email
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Email
           </label>
           <input
             type="email"
             id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-indigo-400 dark:focus:border-indigo-400"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1 dark:text-gray-300">
-            Your Message
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Message
           </label>
           <textarea
             id="message"
-            name="message"
             rows="5"
-            value={formData.message}
-            onChange={handleChange}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-indigo-400 dark:focus:border-indigo-400"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3"
           ></textarea>
         </div>
         <button
           type="submit"
-          className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75"
+          disabled={loading}
+          className="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Send Message
+          {loading ? "Submitting..." : "Send Message"}
         </button>
-        {status && <p className={`mt-4 text-center text-lg ${status.includes("sent") ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>{status}</p>}
+
+        {status && (
+          <div
+            className={`text-center p-3 rounded-md mt-4 ${
+              status === "success" ? "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200" : "bg-red-100 text-red-700 dark:bg-red-800 dark:text-red-200"
+            }`}
+          >
+            {status === "success" ? "Your message has been sent successfully!" : "Failed to send message. Please try again."}
+          </div>
+        )}
       </form>
+
+      <div className="mt-12 text-center text-gray-600 dark:text-gray-300">
+        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Other Ways to Reach Us</h3>
+        <p className="flex items-center justify-center mb-2">
+          <Phone className="h-5 w-5 mr-2 text-indigo-600 dark:text-indigo-400" /> +1 (512) 677-9899
+        </p>
+        <p className="flex items-center justify-center mb-2">
+          <Mail className="h-5 w-5 mr-2 text-indigo-600 dark:text-indigo-400" />{" "}
+          <a href="mailto:info@suitepreferences.com" className="text-indigo-600 hover:underline dark:text-indigo-400">
+            info@suitepreferences.com
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
@@ -861,7 +883,7 @@ function Footer({ onNavigate }) {
           <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Connect</h3>
           <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
             <Linkedin className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
-            <a href="https://www.linkedin.com/company/107099086/admin/dashboard/" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/107099086" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
               LinkedIn
             </a>
           </p>
