@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState, useEffect } from "react";
 import PreLivePage from "./components/modals/PreLivePage";
 import Header from "./components/common/Header";
@@ -7,11 +6,11 @@ import Footer from "./components/common/Footer";
 import PrivacyPage from "./pages/PrivacyPage";
 import ContactPage from "./pages/ContactPage";
 import { SHOW_PRELIVE_POPUP } from "./utils/constants";
-import { usePageNavigation } from "./hooks/usePageNavigation"; // Import the custom hook
+import { usePageNavigation } from "./hooks/usePageNavigation";
 
 // Main App Component
 export default function App() {
-  // Use the custom navigation hook to manage currentPage and handleNavigation
+  // Use the navigation hook to manage currentPage and handleNavigation
   const { currentPage, handleNavigation } = usePageNavigation();
 
   // State to control preLiveNotice popup visibility
