@@ -38,7 +38,7 @@ function HomePage({ onNavigate }) {
             <span className="font-bold text-indigo-300 tracking-tighter">
               Portlet<span className="font-light">Refresher</span>
             </span>
-            , and Developer faster with{" "}
+            , and Develop faster with{" "}
             <span className="font-bold text-purple-300 tracking-tighter">
               XML<span className="font-light">RecordSlider</span>
             </span>

@@ -23,8 +23,7 @@ function Header({ onNavigate }) {
    * Handles the "Get Extension" button click.
    */
   const handleGetExtensionClick = () => {
-    console.log("Redirecting to Chrome Web Store to install SuitePreferences!");
-    // window.open("YOUR_CHROME_WEB_STORE_URL", "_blank");
+    alert("Redirecting to Chrome Web Store to install SuitePreferences!");
   };
 
   return (
