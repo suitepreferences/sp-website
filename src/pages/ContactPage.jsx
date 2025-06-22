@@ -47,16 +47,16 @@ function ContactPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-3xl bg-white shadow-lg rounded-xl my-8 dark:bg-gray-800 dark:shadow-2xl">
-      <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center dark:text-white">
-        <Mail className="inline-block h-10 w-10 text-ns-med-blue dark:text-ns-light-blue mr-3 align-middle" />
+    <div className="container mx-auto px-4 py-12 max-w-3xl rounded-xl my-8 bg-gray-800 shadow-2xl">
+      <h1 className="text-4xl font-bold mb-8 text-center text-white">
+        <Mail className="inline-block h-10 w-10 text-ns-light-blue mr-3 align-middle" />
         Contact Us
       </h1>
-      <p className="text-center text-lg text-gray-700 dark:text-gray-300 mb-8">We'd love to hear from you! Please fill out the form below to get in touch.</p>
+      <p className="text-center text-lg text-gray-300 mb-8">We'd love to hear from you! Please fill out the form below to get in touch.</p>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-300">
             Name
           </label>
           <input
@@ -65,11 +65,11 @@ function ContactPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3"
+            className="mt-1 block w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 bg-gray-700 border-gray-600 text-white p-3"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-300">
             Email
           </label>
           <input
@@ -78,11 +78,11 @@ function ContactPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3"
+            className="mt-1 block w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 bg-gray-700 border-gray-600 text-white p-3"
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-300">
             Message
           </label>
           <textarea
@@ -91,7 +91,7 @@ function ContactPage() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-3"
+            className="mt-1 block w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 bg-gray-700 border-gray-600 text-white p-3"
           ></textarea>
         </div>
         <button
@@ -103,24 +103,20 @@ function ContactPage() {
         </button>
 
         {status && (
-          <div
-            className={`text-center p-3 rounded-md mt-4 ${
-              status === "success" ? "bg-green-100 text-green-700 dark:bg-green-800 dark:text-green-200" : "bg-red-100 text-red-700 dark:bg-red-800 dark:text-red-200"
-            }`}
-          >
+          <div className={`text-center p-3 rounded-md mt-4 ${status === "success" ? "bg-green-800 text-green-200" : "bg-red-800 text-red-200"}`}>
             {status === "success" ? "Your message has been sent successfully!" : "Failed to send message. Please try again."}
           </div>
         )}
       </form>
 
-      <div className="mt-12 text-center text-gray-600 dark:text-gray-300">
-        <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Other Ways to Reach Us</h3>
+      <div className="mt-12 text-center text-gray-300">
+        <h3 className="text-xl font-bold mb-4 text-white">Other Ways to Reach Us</h3>
         <p className="flex items-center justify-center mb-2">
-          <Phone className="h-5 w-5 mr-2 text-indigo-600 dark:text-indigo-400" /> +1 (512) 677-9899
+          <Phone className="h-5 w-5 mr-2 text-indigo-400" /> +1 (512) 677-9899
         </p>
         <p className="flex items-center justify-center mb-2">
-          <Mail className="h-5 w-5 mr-2 text-indigo-600 dark:text-indigo-400" />{" "}
-          <a href="mailto:info@suitepreferences.com" className="text-indigo-600 hover:underline dark:text-indigo-400">
+          <Mail className="h-5 w-5 mr-2 text-indigo-400" />{" "}
+          <a href="mailto:info@suitepreferences.com" className="hover:underline text-indigo-400">
             info@suitepreferences.com
           </a>
         </p>

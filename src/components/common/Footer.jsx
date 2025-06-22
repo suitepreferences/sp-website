@@ -2,20 +2,20 @@ import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 function Footer({ onNavigate }) {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 px-4 rounded-t-3xl shadow-inner dark:bg-gray-950 dark:text-gray-400">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="py-12 px-4 rounded-t-3xl shadow-inner bg-gray-950 text-gray-400 max-w-6xl mx-auto">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12 items-start">
         {/* About */}
         <div>
-          <h3 className="text-3xl font-bold text-white mb-4 dark:text-white">
-            <span className="font-extrabold text-ns-light-blue">Suite</span>
-            <span className="font-normal text-ns-gold">Preferences™</span>
+          <h3 className="text-3xl font-bold mb-4 text-white">
+            <span className="font-extrabold text-indigo-300">Suite</span>
+            <span className="font-normal text-pink-400">Preferences™</span>
           </h3>
-          <p className="text-gray-400 dark:text-gray-500">Enhancing your NetSuite UX with customization and productivity tools.</p>
+          <p className="text-gray-500">Enhancing your NetSuite UX with customization and productivity tools.</p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Quick Links</h3>
+          <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3>
           <ul className="space-y-2">
             <li>
               <button
@@ -54,21 +54,21 @@ function Footer({ onNavigate }) {
 
         {/* Get In Touch */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Get in Touch</h3>
-          <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
-            <Mail className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
+          <h3 className="text-xl font-bold mb-4 text-white">Get in Touch</h3>
+          <p className="text-gray-400 flex items-center mb-2">
+            <Mail className="h-5 w-5 mr-3 text-gray-600" />
             <a href="mailto:info@suitepreferences.com" className="text-gray-400 hover:text-white transition-colors duration-200">
               info@suitepreferences.com
             </a>
           </p>
-          <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
-            <Phone className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
+          <p className="text-gray-400 flex items-center mb-2">
+            <Phone className="h-5 w-5 mr-3 text-gray-600" />
             <a href="tel:15126779899" className="text-gray-400 hover:text-white transition-colors duration-200">
               +1 (512) 677-9899
             </a>
           </p>
-          <p className="text-gray-400 flex items-center dark:text-gray-400">
-            <MapPin className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
+          <p className="text-gray-400 flex items-center">
+            <MapPin className="h-5 w-5 mr-3 text-gray-600" />
             <a href="https://www.google.com/maps/place/Belton,+TX" className="text-gray-400 hover:text-white transition-colors duration-200">
               Belton, TX
             </a>
@@ -77,16 +77,16 @@ function Footer({ onNavigate }) {
 
         {/* Social */}
         <div>
-          <h3 className="text-xl font-bold text-white mb-4 dark:text-white">Connect</h3>
-          <p className="text-gray-400 flex items-center mb-2 dark:text-gray-400">
-            <Linkedin className="h-5 w-5 mr-3 text-gray-500 dark:text-gray-600" />
+          <h3 className="text-xl font-bold text-white mb-4">Connect</h3>
+          <p className="text-gray-400 flex items-center mb-2">
+            <Linkedin className="h-5 w-5 mr-3 text-gray-600" />
             <a href="https://www.linkedin.com/company/107099086" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
               LinkedIn
             </a>
           </p>
         </div>
       </div>
-      <div className="text-center text-gray-500 text-sm mt-12 border-t border-gray-800 pt-8 dark:border-gray-700">&copy; {new Date().getFullYear()} SuitePreferences™. All rights reserved.</div>
+      <div className="text-center text-gray-500 text-sm mt-12 border-t pt-8 border-gray-700">&copy; {new Date().getFullYear()} SuitePreferences™. All rights reserved.</div>
     </footer>
   );
 }

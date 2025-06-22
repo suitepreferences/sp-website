@@ -1,114 +1,141 @@
 import { useState } from "react";
-import { Sun, Moon, Home, DollarSign, Shield, Mail, Menu, X } from "lucide-react";
-import { useTheme } from "../../contexts/ThemeContext";
+import { DollarSign, Shield, Mail, Menu, X } from "lucide-react";
 import SuitePreferencesLogo from "../../assets/icons/sp_logo_nobg_large.svg";
-import NavItem from "./NavItem";
-import MobileNavItem from "./MobileNavItem";
+import ChromeLogo from "../../assets/icons/sp_chrome_logo_nobg.png";
+import useHeaderScroll from "../../hooks/useHeaderScroll";
 
 function Header({ onNavigate }) {
-  const { theme, toggleTheme } = useTheme();
+  // State for mobile menu open/close
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Use custom hook for header visibility (debounced scroll)
+  const showHeader = useHeaderScroll(setIsMenuOpen);
 
-  // This local handler wraps onNavigate to also close the mobile menu
+  /**
+   * Handles navigation button clicks and closes the menu (mobile).
+   * @param {string} target - The navigation target.
+   */
   const handleNavClickWrapper = (target) => {
     onNavigate(target);
-    setIsMenuOpen(false); // Close menu on navigation
+    setIsMenuOpen(false);
+  };
+
+  /**
+   * Handles the "Get Extension" button click.
+   */
+  const handleGetExtensionClick = () => {
+    console.log("Redirecting to Chrome Web Store to install SuitePreferences!");
+    // window.open("YOUR_CHROME_WEB_STORE_URL", "_blank");
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 dark:bg-gray-800 dark:shadow-lg transition-colors duration-300">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo/Site Title */}
-        <div className="flex items-center space-x-2 cursor-pointer transform transition-transform duration-300 hover:scale-105" onClick={() => handleNavClickWrapper("home")}>
-          <img src={SuitePreferencesLogo} alt="SuitePreferences Logo" className="h-10 w-10" />
-          <span className="text-3xl font-extrabold text-ns-med-blue dark:text-ns-light-blue tracking-tight">
-            Suite
-            <span className="font-normal tracking-tighter text-ns-gold">
-              Preferences<sup className="text-xs">™</sup>
+    <>
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 max-w-[90%] lg-header-1293:max-w-6xl mx-auto bg-gradient-to-r from-black via-purple-950 to-black text-purple-200 border-l-2 border-r-2 border-purple-900 shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] rounded-full opacity-90 transform transition-transform duration-500 ease-out ${
+          showHeader ? "translate-y-[40px]" : "-translate-y-full"
+        }`}
+      >
+        <nav className="container mx-auto px-4 py-4 flex items-center justify-between max-w-[100%]">
+          {/* Logo/Site Title */}
+          <div className="flex items-center space-x-2 cursor-pointer transition duration-500 hover:scale-105" onClick={() => handleNavClickWrapper("home")}>
+            <img src={SuitePreferencesLogo} alt="SuitePreferences Logo" className="h-10 w-10" />
+            <span className="text-3xl font-extrabold tracking-tight text-indigo-300">
+              Suite
+              <span className="font-light tracking-tighter text-pink-400">Preferences</span>
             </span>
-          </span>
-        </div>
+          </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
-            aria-label="Toggle dark mode"
-          >
-            {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
-          </button>
-          {/* Nav Items */}
-          <NavItem onClick={() => handleNavClickWrapper("home")} icon={<Home className="h-5 w-5" />}>
-            Home
-          </NavItem>
-          {/* Pricing now scrolls to #pricing */}
-          <NavItem onClick={() => handleNavClickWrapper("#pricing")} icon={<DollarSign className="h-5 w-5" />}>
-            Pricing
-          </NavItem>
-          <NavItem onClick={() => handleNavClickWrapper("privacy")} icon={<Shield className="h-5 w-5" />}>
-            Privacy
-          </NavItem>
-          <NavItem onClick={() => handleNavClickWrapper("contact")} icon={<Mail className="h-5 w-5" />}>
-            Contact
-          </NavItem>
-          <button
-            onClick={() => alert("Redirect to Chrome Web Store for installation!")}
-            className="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75"
-          >
-            Get Extension
-          </button>
-        </div>
+          {/* Desktop Navigation */}
+          <div className="hidden lg-1000:flex items-center space-x-2">
+            {/* Pricing */}
+            <button
+              onClick={() => handleNavClickWrapper("#pricing")}
+              className="inline-flex items-center px-4 py-2 rounded-full text-purple-200 hover:bg-purple-800 hover:text-pink-300 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <DollarSign className="h-5 w-5 mr-2 group-hover:text-pink-300 transition-colors duration-300" />
+              Pricing
+            </button>
+            {/* Privacy */}
+            <button
+              onClick={() => handleNavClickWrapper("privacy")}
+              className="inline-flex items-center px-4 py-2 rounded-full text-purple-200 hover:bg-purple-800 hover:text-pink-300 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <Shield className="h-5 w-5 mr-2 group-hover:text-pink-300 transition-colors duration-300" />
+              Privacy
+            </button>
+            {/* Contact */}
+            <button
+              onClick={() => handleNavClickWrapper("contact")}
+              className="inline-flex items-center px-4 py-2 rounded-full text-purple-200 hover:bg-purple-800 hover:text-pink-300 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <Mail className="h-5 w-5 mr-2 group-hover:text-pink-300 transition-colors duration-300" />
+              Contact
+            </button>
+            {/* Get Extension Button - also pill-shaped */}
+            <button
+              onClick={handleGetExtensionClick}
+              className="px-4 py-2 bg-purple-700 text-purple-200 rounded-full shadow-md hover:bg-purple-600 hover:text-pink-300 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <span className="flex items-center">
+                <img src={ChromeLogo} alt="Chrome Logo" className="w-4 h-4 mr-2" />
+                Get Extension
+              </span>
+            </button>
+          </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 rounded-md dark:text-gray-300 dark:hover:text-white"
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </nav>
+          {/* Mobile Menu Button */}
+          <div className="lg-1000:hidden flex items-center space-x-2">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75 rounded-md text-purple-200 hover:text-pink-300">
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </nav>
+      </header>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 py-4 dark:bg-gray-800 dark:border-gray-700">
-          <ul className="flex flex-col items-center space-y-4">
-            <li>
-              <MobileNavItem onClick={() => handleNavClickWrapper("home")} icon={<Home className="h-5 w-5" />}>
-                Home
-              </MobileNavItem>
-            </li>
-            {/* Mobile Pricing now scrolls to #pricing */}
-            <li>
-              <MobileNavItem onClick={() => handleNavClickWrapper("#pricing")} icon={<DollarSign className="h-5 w-5" />}>
-                Pricing
-              </MobileNavItem>
-            </li>
-            <li>
-              <MobileNavItem onClick={() => handleNavClickWrapper("privacy")} icon={<Shield className="h-5 w-5" />}>
-                Privacy
-              </MobileNavItem>
-            </li>
-            <li>
-              <MobileNavItem onClick={() => handleNavClickWrapper("contact")} icon={<Mail className="h-5 w-5" />}>
-                Contact
-              </MobileNavItem>
-            </li>
-            <li>
-              <button
-                onClick={() => alert("Redirect to Chrome Web Store for installation!")}
-                className="w-full px-6 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75"
-              >
-                Get Extension
-              </button>
-            </li>
-          </ul>
-        </div>
-      )}
-    </header>
+      <div
+        className={`fixed left-1/2 -translate-x-1/2 w-[75%] bg-gradient-to-br from-purple-900/30 via-gray-900/20 to-black/30 text-purple-200 border border-purple-800/30 shadow-inner backdrop-blur-sm z-40 lg-1000:hidden transform transition-all duration-500 ease-in-out rounded-b-3xl ${
+          isMenuOpen ? "top-[110px] opacity-100" : "top-0 opacity-0 -translate-y-full"
+        }`}
+      >
+        <ul className="flex flex-col items-center space-y-4 py-6">
+          <li>
+            <button
+              onClick={() => handleNavClickWrapper("#pricing")}
+              className="w-full inline-flex items-center justify-center px-4 py-2 rounded-full text-purple-200 hover:bg-purple-800 hover:text-pink-300 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <DollarSign className="h-5 w-5 mr-2 group-hover:text-pink-300 transition-colors duration-300" />
+              Pricing
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => handleNavClickWrapper("privacy")}
+              className="w-full inline-flex items-center justify-center px-4 py-2 rounded-full text-purple-200 hover:bg-purple-800 hover:text-pink-300 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <Shield className="h-5 w-5 mr-2 group-hover:text-pink-300 transition-colors duration-300" />
+              Privacy
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={() => handleNavClickWrapper("contact")}
+              className="w-full inline-flex items-center justify-center px-4 py-2 rounded-full text-purple-200 hover:bg-purple-800 hover:text-pink-300 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              <Mail className="h-5 w-5 mr-2 group-hover:text-pink-300 transition-colors duration-300" />
+              Contact
+            </button>
+          </li>
+          <li>
+            <button
+              onClick={handleGetExtensionClick}
+              className="w-full px-6 py-2 bg-pink-600 text-white font-semibold rounded-full shadow-md hover:bg-pink-700 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-75"
+            >
+              Get Extension
+            </button>
+          </li>
+        </ul>
+      </div>
+    </>
   );
 }
 

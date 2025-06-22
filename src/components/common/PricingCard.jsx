@@ -3,26 +3,29 @@ import { CheckCircle, XCircle } from "lucide-react";
 function PricingCard({ title, price, period, features, buttonText, buttonClass, isPopular, onClick, originalPrice }) {
   return (
     <div
-      className={`bg-white p-8 rounded-xl shadow-lg flex flex-col items-center border-2 ${
-        isPopular ? "border-indigo-600 dark:border-indigo-400" : "border-gray-100 dark:border-gray-700"
-      } transition-all duration-300 hover:shadow-xl hover:scale-105 dark:bg-gray-800 dark:shadow-2xl`}
+      className={`w-full max-w-[600px] mx-auto p-8 rounded-xl bg-gradient-to-br from-purple-900/30 via-gray-900/20 to-black/30 flex flex-col items-center border border-purple-800/30 shadow-inner hover:shadow-[0_0_20px_#D100FF] hover:backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 ${
+        isPopular ? "ring-2 ring-indigo-400" : ""
+      }`}
     >
       {isPopular && <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 -mt-12 shadow-md">Most Popular</span>}
-      <h3 className="text-3xl font-bold text-gray-900 mb-2 dark:text-white">{title}</h3>
-      <div className="text-5xl font-extrabold text-indigo-600 mb-4 dark:text-indigo-400">
+      <h3 className="text-white text-3xl font-bold mb-2">{title}</h3> {/* Permanent white text */}
+      <div className="text-indigo-400 text-5xl font-extrabold mb-4">
+        {" "}
+        {/* Permanent indigo-400 */}
         {/* Conditionally render original price with strikethrough if provided */}
-        {originalPrice && <span className="text-xl font-light text-gray-500 dark:text-gray-400 line-through mr-2">{originalPrice}</span>}
+        {originalPrice && <span className="text-gray-400 text-xl font-light line-through mr-2">{originalPrice}</span>} {/* Permanent gray-400 */}
         {price}
-        <span className="text-xl font-medium text-gray-500 dark:text-gray-400">{period}</span>
+        <span className="text-gray-400 text-xl font-medium">{period}</span> {/* Permanent gray-400 */}
       </div>
-      <ul className="text-gray-700 text-lg space-y-3 mb-8 w-full">
+      <ul className="text-gray-300 text-lg space-y-3 mb-8 w-full">
+        {" "}
+        {/* Permanent gray-300 */}
         {features.map((feature, index) => (
-          <li key={index} className={`flex items-center ${feature.included ? "text-gray-800 dark:text-gray-200" : "text-gray-400 line-through dark:text-gray-500"}`}>
-            {feature.included ? (
-              <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 dark:text-green-400" />
-            ) : (
-              <XCircle className="h-5 w-5 text-red-400 mr-3 flex-shrink-0 dark:text-red-300" />
-            )}
+          <li key={index} className={`flex items-center ${feature.included ? "text-gray-300" : "line-through text-gray-400"}`}>
+            {" "}
+            {/* Permanent gray-300/400 */}
+            {feature.included ? <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-green-400" /> : <XCircle className="h-5 w-5 text-red-400 mr-3 flex-shrink-0" />}{" "}
+            {/* Permanent green-400/red-400 */}
             {feature.text}
           </li>
         ))}
