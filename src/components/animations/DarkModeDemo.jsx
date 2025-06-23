@@ -46,11 +46,12 @@ function DarkModeDemo() {
             <video
               src={spDemoClip}
               alt="App Dashboard Demo Video"
-              className="w-full h-full object-cover" // Changed object-contain to object-cover
-              controls // Allows user to play/pause, adjust volume, etc.
-              loop // Loops the video automatically
-              muted // Mutes the video by default (good for autoplay in demos)
-              autoPlay // Autoplays the video when loaded
+              className="w-full h-full object-cover"
+              loop
+              muted
+              autoPlay
+              playsInline
+              disablePictureInPicture
               onError={(e) => {
                 console.error("Failed to load dashboard demo video:", e);
                 // You could display a fallback image or message here if the video fails to load
