@@ -1,7 +1,18 @@
 {
   "short_name": "SuitePreferences",
   "name": "SuitePreferences for NetSuite",
-  "icons": [],
+  "icons": [
+    {
+      "src": "sp_favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "sp_favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

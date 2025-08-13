@@ -32,7 +32,8 @@ function PreLivePage({ onLoginSuccess }) {
         </h2>
         <p className="my-6 text-purple-100 mb-6 text-center">
           <span className="font-extrabold text-indigo-300">Suite</span>
-          <span className="font-normal text-pink-400">Preferences™</span> is not live yet, but feel free to stop in. Some links may connect to sandboxed tools or to nothing at all.
+          <span className="font-normal text-pink-400">Preferences™</span> is not live for everyone, but feel free to stop in. Although checkout links are connected, the Chrome Extension is not
+          available yet.
         </p>
 
         {/* Countdown Timer Section */}

@@ -4,7 +4,7 @@ import SuitePreferencesLogo from "../../assets/icons/sp_logo_nobg_large.svg";
 import ChromeLogo from "../../assets/icons/sp_chrome_logo_nobg.png";
 import useHeaderScroll from "../../hooks/useHeaderScroll";
 
-function Header({ onNavigate }) {
+function Header({ onNavigate, onPlanSelection }) {
   // State for mobile menu open/close
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Use custom hook for header visibility (debounced scroll)
@@ -23,7 +23,9 @@ function Header({ onNavigate }) {
    * Handles the "Get Extension" button click.
    */
   const handleGetExtensionClick = () => {
-    alert("Redirecting to Chrome Web Store to install SuitePreferences!");
+    if (onPlanSelection) {
+      onPlanSelection("Pro Yearly");
+    }
   };
 
   return (
