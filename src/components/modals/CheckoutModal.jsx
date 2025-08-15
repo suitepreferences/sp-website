@@ -10,6 +10,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    discountCode: "",
   });
 
   const validateForm = () => {
@@ -63,6 +64,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
             plan: selectedPlan,
             email: formDataToUse.email.trim(),
             name: formDataToUse.name.trim(),
+            discountCode: formDataToUse.discountCode.trim() || null,
           }),
         });
 
@@ -110,10 +112,20 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
       setShowForm(true);
       setError("");
       setCheckoutUrl("");
+      setFormData({
+        name: "",
+        email: "",
+        discountCode: "",
+      });
     } else {
       setShowForm(true);
       setError("");
       setCheckoutUrl("");
+      setFormData({
+        name: "",
+        email: "",
+        discountCode: "",
+      });
     }
   }, [isOpen, planType]);
 
@@ -205,6 +217,22 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
                 />
                 <p className="text-xs text-purple-300 mt-2">This must match the email address you use to log into NetSuite</p>
               </div>
+
+              {planType !== "Basic" && (
+                <div className="w-full max-w-lg px-2">
+                  <label htmlFor="discountCode" className="block text-sm font-medium text-purple-200 mb-2">
+                    Discount Code (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    id="discountCode"
+                    value={formData.discountCode}
+                    onChange={(e) => setFormData({ ...formData, discountCode: e.target.value })}
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-purple-700/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                    placeholder="Enter discount code if you have one"
+                  />
+                </div>
+              )}
 
               {error && (
                 <div className="w-full max-w-md px-2 bg-red-900/30 border border-red-700/50 rounded-lg p-4">
