@@ -7,6 +7,7 @@ import Badge from "../components/common/Badge";
 
 import HoneycombCluster from "../components/animations/HoneycombCluster";
 import PortletRefreshDemo from "../components/animations/PortletRefreshDemo";
+import SuiteConsoleDemo from "../components/animations/SuiteConsoleDemo";
 import Carousel from "../components/common/Carousel";
 
 function HomePage({ onNavigate, onPlanSelection }) {
@@ -47,6 +48,7 @@ function HomePage({ onNavigate, onPlanSelection }) {
           <div className="w-full max-w-7xl pb-4">
             <Carousel>
               <PortletRefreshDemo />
+              <SuiteConsoleDemo />
               <DarkModeDemo />
             </Carousel>
           </div>
