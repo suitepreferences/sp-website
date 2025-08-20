@@ -94,7 +94,7 @@ export default function App() {
       <Footer onNavigate={handleNavigation} />
 
       {/* Checkout Modal - rendered at app level to cover entire viewport */}
-      <CheckoutModal isOpen={isCheckoutModalOpen} onClose={closeCheckoutModal} planType={selectedPlan} onPlanChange={setSelectedPlan} />
+      <CheckoutModal isOpen={isCheckoutModalOpen} onClose={closeCheckoutModal} planType={selectedPlan} onPlanChange={setSelectedPlan} onEnterpriseSelection={() => setIsEnterpriseModalOpen(true)} />
 
       {/* Enterprise Contact Modal - rendered at app level to cover entire viewport */}
       <EnterpriseContactModal isOpen={isEnterpriseModalOpen} onClose={closeEnterpriseModal} />

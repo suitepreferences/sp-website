@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { X, Loader2 } from "lucide-react";
 import { checkoutConfig } from "../../config/checkout";
 
-function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
+function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSelection }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [checkoutUrl, setCheckoutUrl] = useState("");
@@ -148,7 +148,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
           <div className="mb-6 flex flex-col items-center">
             <label className="block text-sm font-medium text-purple-200 mb-3">Select Your Plan:</label>
             <div className="w-full max-w-lg px-2">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                 <button
                   onClick={() => onPlanChange("Basic")}
                   className={`w-full px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
@@ -178,6 +178,19 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
                   Pro Yearly
                   <br />
                   $60
+                </button>
+                <button
+                  onClick={() => {
+                    onClose();
+                    onEnterpriseSelection();
+                  }}
+                  className={`w-full px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                    planType === "Pro Yearly - Enterprise Domain" ? "bg-emerald-600 text-white shadow-lg" : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+                  }`}
+                >
+                  Enterprise
+                  <br />
+                  $60/user
                 </button>
               </div>
             </div>
