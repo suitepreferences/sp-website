@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PreLivePage from "./components/modals/PreLivePage";
 import CheckoutModal from "./components/modals/CheckoutModal";
+import EnterpriseContactModal from "./components/modals/EnterpriseContactModal";
 import Header from "./components/common/Header";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/common/Footer";
@@ -21,6 +22,9 @@ export default function App() {
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState("");
 
+  // State to control enterprise contact modal
+  const [isEnterpriseModalOpen, setIsEnterpriseModalOpen] = useState(false);
+
   // Effect to conditionally show the preLiveNotice popup on initial load.
   // Also sets initial visibility of the Mac animation section.
   useEffect(() => {
@@ -34,16 +38,25 @@ export default function App() {
     setshowPreLiveNotice(false);
   };
 
-  // Handler for opening the checkout modal
+  // Handler for opening the checkout modal or enterprise contact modal
   const handlePlanSelection = (planType) => {
-    setSelectedPlan(planType);
-    setIsCheckoutModalOpen(true);
+    if (planType === "Pro Yearly - Enterprise Domain") {
+      setIsEnterpriseModalOpen(true);
+    } else {
+      setSelectedPlan(planType);
+      setIsCheckoutModalOpen(true);
+    }
   };
 
   // Handler for closing the checkout modal
   const closeCheckoutModal = () => {
     setIsCheckoutModalOpen(false);
     setSelectedPlan("");
+  };
+
+  // Handler for closing the enterprise contact modal
+  const closeEnterpriseModal = () => {
+    setIsEnterpriseModalOpen(false);
   };
 
   /**
@@ -82,6 +95,9 @@ export default function App() {
 
       {/* Checkout Modal - rendered at app level to cover entire viewport */}
       <CheckoutModal isOpen={isCheckoutModalOpen} onClose={closeCheckoutModal} planType={selectedPlan} onPlanChange={setSelectedPlan} />
+
+      {/* Enterprise Contact Modal - rendered at app level to cover entire viewport */}
+      <EnterpriseContactModal isOpen={isEnterpriseModalOpen} onClose={closeEnterpriseModal} />
     </div>
   );
 }

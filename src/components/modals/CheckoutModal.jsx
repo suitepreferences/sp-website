@@ -49,6 +49,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange }) {
         Basic: "basic",
         "Pro Monthly": "pro_monthly",
         "Pro Yearly": "pro_yearly",
+        "Pro Yearly - Enterprise Domain": "pro_yearly_enterprise",
       };
 
       const selectedPlan = planMapping[planType] || "pro_monthly";

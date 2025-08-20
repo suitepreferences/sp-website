@@ -110,7 +110,8 @@ function HomePage({ onNavigate, onPlanSelection }) {
           </span>
           Choose a Plan that works for you
         </h1>
-        <div className="grid grid-cols-1 pricing-section-1050:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {/* First Row */}
           <PricingCard
             title="Basic"
             price="$0"
@@ -147,6 +148,10 @@ function HomePage({ onNavigate, onPlanSelection }) {
             buttonClass="bg-indigo-600 text-white hover:bg-indigo-700"
             onClick={() => onPlanSelection("Pro Monthly")}
           />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-6">
+          {/* Second Row */}
           <PricingCard
             title="Pro Yearly"
             price="$60"
@@ -164,12 +169,28 @@ function HomePage({ onNavigate, onPlanSelection }) {
             buttonClass="bg-purple-600 text-white hover:bg-purple-700"
             onClick={() => onPlanSelection("Pro Yearly")}
           />
+          <PricingCard
+            title="Pro Yearly - Enterprise Domain"
+            price="$60"
+            period="/user/year"
+            features={[
+              { text: "All Basic & Pro Monthly features", included: true },
+              { text: "Annual billing", included: true },
+              { text: "Multiple user accounts", included: true },
+              { text: "Domain-wide access for all users", included: true },
+              { text: "Instant access to new features", included: true },
+            ]}
+            buttonText="Contact Sales"
+            buttonClass="bg-emerald-600 text-white hover:bg-emerald-700"
+            onClick={() => onPlanSelection("Pro Yearly - Enterprise Domain")}
+          />
         </div>
         <div className="max-w-6xl mx-auto text-center mt-8">
           <p className="text-purple-300">
             ‡ Your <span className="font-extrabold text-indigo-300">Suite</span>
             <span className="font-normal text-pink-400">Preferences™</span> subscription is tied to your NetSuite login email and can be updated at any time.
           </p>
+          <p className="text-purple-300 mt-2">For Enterprise accounts, subscriptions are tied to the logged in user's email domain.</p>
         </div>
       </section>
 
