@@ -30,7 +30,7 @@ function Header({ onNavigate, onPlanSelection, isLoaded = true }) {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo/Site Title */}
           <div className="flex items-center cursor-pointer transition duration-500" onClick={() => handleNavClickWrapper("home")}>
-            <img src="/branding/sp-logo_full-width_dark-bg.png" alt="SuitePreferences" className="h-8 w-auto" />
+            <img src="./branding/sp-logo_full-width_dark-bg.png" alt="SuitePreferences" className="h-8 w-auto" />
           </div>
 
           {/* Desktop Navigation */}

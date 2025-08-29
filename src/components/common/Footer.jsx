@@ -7,7 +7,7 @@ function Footer({ onNavigate }) {
         {/* About */}
         <div>
           <h3 className="mb-4">
-            <img src="/branding/sp-logo_full-width_dark-bg.png" alt="SuitePreferences" className="max-w-full" />
+            <img src="./branding/sp-logo_full-width_dark-bg.png" alt="SuitePreferences" className="max-w-full" />
           </h3>
           <p className="text-gray-500">Enhancing your NetSuite UX with customization and productivity tools.</p>
         </div>
