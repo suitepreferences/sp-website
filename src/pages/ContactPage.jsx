@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Mail, Phone } from "lucide-react";
-import HoneycombCluster from "../components/animations/HoneycombCluster";
 
 function ContactPage() {
   const [name, setName] = useState("");
@@ -49,9 +48,7 @@ function ContactPage() {
 
   return (
     <div className="relative isolate">
-      <HoneycombCluster className="pointer-events-none fixed top-0 left-0 w-[800px] opacity-15 z-0" />
-      <HoneycombCluster className="pointer-events-none fixed bottom-0 right-0 w-[800px] opacity-20 z-0" />
-      <div className="container mx-auto px-4 py-12 max-w-3xl rounded-xl my-24 bg-gray-800 shadow-2xl">
+      <div className="container mx-auto px-4 py-12 max-w-3xl rounded-xl my-12 bg-gray-800 shadow-2xl">
         <h1 className="text-4xl font-bold mb-8 text-center text-white">
           <Mail className="inline-block h-10 w-10 text-ns-light-blue mr-3 align-middle" />
           Contact Us

@@ -1,20 +1,18 @@
 import { ShieldCheck } from "lucide-react";
-import HoneycombCluster from "../components/animations/HoneycombCluster";
 
 function PrivacyPage() {
   return (
     <div className="relative isolate">
-      <HoneycombCluster className="pointer-events-none fixed top-0 left-0 w-[800px] opacity-15 z-0" />
-      <HoneycombCluster className="pointer-events-none fixed bottom-0 right-0 w-[800px] opacity-20 z-0" />
-      <div className="container mx-auto px-4 py-12 max-w-3xl rounded-xl my-24 bg-gray-800 shadow-2xl">
-        <h1 className="text-4xl font-bold mb-8 text-center text-white">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 className="text-4xl font-bold mb-8 text-center text-gray-100">
           <span className="inline-block mx-2 align-[-.2em]">
             <ShieldCheck className="h-[1.1em] w-[1.1em] text-green-400" />
           </span>
           Privacy Policy for SuitePreferences
         </h1>
-        <div className="prose-indigo max-w-none prose-invert">
-          <p className="text-gray-300">
+
+        <div className="prose prose-invert max-w-none">
+          <p className="text-gray-300 mb-6">
             This Privacy Policy describes how SuitePreferences ("we," "us," or "our") collects, uses, and discloses information when you use our Chrome Extension, SuitePreferences (the "Extension").
           </p>
 
@@ -31,7 +29,7 @@ function PrivacyPage() {
             All preferences and customizations you set within the SuitePreferences extension are stored locally on your device and are never sent to our servers or any third-party servers.
           </p>
 
-          <h2 className="text-2xl font-semibold mt-8 mb-4 text-white">Information We May Collect (for Subscription Management)</h2>
+          <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-100">Subscription Information</h2>
           <p className="text-gray-300">
             If you opt to purchase a subscription to SuitePreferences, we will use a secure, third-party payment processor. In this case, the following information related to your subscription may be
             processed by the payment processor and shared with us for billing and account management purposes:

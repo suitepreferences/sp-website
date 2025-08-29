@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 function PricingCard({ title, price, period, features, buttonText, buttonClass, isPopular, onClick, originalPrice, badge }) {
   return (
     <div
-      className={`w-full max-w-[500px] mx-auto p-8 rounded-xl bg-gradient-to-br from-purple-900/30 via-gray-900/20 to-black/30 flex flex-col items-center border border-purple-800/30 shadow-inner hover:shadow-[0_0_20px_#D100FF] hover:backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-1 ${
+      className={`w-full max-w-[500px] mx-auto p-8 rounded-xl bg-gradient-to-br from-purple-900/30 via-gray-900/20 to-black/30 flex flex-col items-center border border-purple-800/30 shadow-inner hover:backdrop-blur-sm transition-all duration-300 min-h-[600px] ${
         isPopular ? "ring-2 ring-indigo-400" : ""
       }`}
     >

@@ -6,9 +6,8 @@ function Footer({ onNavigate }) {
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12 items-start">
         {/* About */}
         <div>
-          <h3 className="text-3xl font-bold mb-4 text-white">
-            <span className="font-extrabold text-indigo-300">Suite</span>
-            <span className="font-normal text-pink-400">Preferences™</span>
+          <h3 className="mb-4">
+            <img src="/branding/sp-logo_full-width_dark-bg.png" alt="SuitePreferences" className="max-w-full" />
           </h3>
           <p className="text-gray-500">Enhancing your NetSuite UX with customization and productivity tools.</p>
         </div>
