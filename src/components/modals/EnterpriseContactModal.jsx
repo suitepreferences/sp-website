@@ -10,6 +10,7 @@ function EnterpriseContactModal({ isOpen, onClose }) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [submittedEmail, setSubmittedEmail] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ function EnterpriseContactModal({ isOpen, onClose }) {
       });
 
       if (response.ok) {
+        setSubmittedEmail(formData.email);
         setSubmitted(true);
         // Clear form fields on success
         setFormData({
@@ -58,6 +60,7 @@ function EnterpriseContactModal({ isOpen, onClose }) {
   const handleClose = () => {
     if (submitted) {
       setSubmitted(false);
+      setSubmittedEmail("");
     }
     onClose();
   };
@@ -152,7 +155,7 @@ function EnterpriseContactModal({ isOpen, onClose }) {
                 <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2">Inquiry Submitted!</h3>
                 <p className="text-gray-300 mb-4">
-                  Thank you for your interest in SuitePreferences Enterprise. We'll be in touch with you shortly at <strong>{formData.email}</strong>.
+                  Thank you for your interest in SuitePreferences Enterprise. We'll be in touch with you shortly at <strong>{submittedEmail}</strong>.
                 </p>
                 <p className="text-gray-400 text-sm">Our team will review your requirements and get back to you within 24 hours with pricing and next steps.</p>
               </div>
