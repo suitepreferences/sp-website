@@ -134,24 +134,24 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] font-sans p-4">
-      <div className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md transform transition-all duration-300 scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
+      <div className="bg-sp-bg-900 border border-sp-bg-700 rounded-2xl w-full max-w-md transform transition-all duration-300 scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex justify-between items-center p-6 border-b border-gray-700">
-          <h2 className="text-2xl font-bold text-white">{planType} Checkout</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors duration-200">
+        <div className="flex justify-between items-center p-6 border-b border-sp-bg-700">
+          <h2 className="text-2xl font-bold text-sp-white">{planType} Checkout</h2>
+          <button onClick={onClose} className="text-sp-text-400 hover:text-sp-white transition-colors duration-200">
             <X className="h-6 w-6" />
           </button>
         </div>
 
         {/* Plan Switcher - Only show when form is visible */}
         {showForm && (
-          <div className="p-6 border-b border-gray-700">
-            <label className="block text-sm font-medium text-gray-300 mb-4">Select Your Plan:</label>
+          <div className="p-6 border-b border-sp-bg-700">
+            <label className="block text-sm font-medium text-sp-text-300 mb-4">Select Your Plan:</label>
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => onPlanChange("Basic")}
                 className={`px-4 py-3 rounded-xl font-medium transition-all duration-200 text-sm ${
-                  planType === "Basic" ? "bg-gray-700 text-white border-2 border-gray-500" : "bg-gray-800 text-gray-300 hover:bg-gray-700 border-2 border-transparent"
+                  planType === "Basic" ? "bg-sp-bg-700 text-sp-white border-2 border-sp-text-500" : "bg-sp-bg-800 text-sp-text-300 hover:bg-sp-bg-700 border-2 border-transparent"
                 }`}
               >
                 <div className="font-bold">Basic</div>
@@ -160,7 +160,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
               <button
                 onClick={() => onPlanChange("Pro Monthly")}
                 className={`px-4 py-3 rounded-xl font-medium transition-all duration-200 text-sm ${
-                  planType === "Pro Monthly" ? "bg-gray-700 text-white border-2 border-gray-500" : "bg-gray-800 text-gray-300 hover:bg-gray-700 border-2 border-transparent"
+                  planType === "Pro Monthly" ? "bg-sp-bg-700 text-sp-white border-2 border-sp-text-500" : "bg-sp-bg-800 text-sp-text-300 hover:bg-sp-bg-700 border-2 border-transparent"
                 }`}
               >
                 <div className="font-bold">Pro Monthly</div>
@@ -169,7 +169,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
               <button
                 onClick={() => onPlanChange("Pro Yearly")}
                 className={`px-4 py-3 rounded-xl font-medium transition-all duration-200 text-sm ${
-                  planType === "Pro Yearly" ? "bg-gray-700 text-white border-2 border-gray-500" : "bg-gray-800 text-gray-300 hover:bg-gray-700 border-2 border-transparent"
+                  planType === "Pro Yearly" ? "bg-sp-bg-700 text-sp-white border-2 border-sp-text-500" : "bg-sp-bg-800 text-sp-text-300 hover:bg-sp-bg-700 border-2 border-transparent"
                 }`}
               >
                 <div className="font-bold">Pro Yearly</div>
@@ -181,7 +181,9 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
                   onEnterpriseSelection();
                 }}
                 className={`px-4 py-3 rounded-xl font-medium transition-all duration-200 text-sm ${
-                  planType === "Pro Yearly - Enterprise Domain" ? "bg-gray-700 text-white border-2 border-gray-500" : "bg-gray-800 text-gray-300 hover:bg-gray-700 border-2 border-transparent"
+                  planType === "Pro Yearly - Enterprise Domain"
+                    ? "bg-sp-bg-700 text-sp-white border-2 border-sp-text-500"
+                    : "bg-sp-bg-800 text-sp-text-300 hover:bg-sp-bg-700 border-2 border-transparent"
                 }`}
               >
                 <div className="font-bold">Enterprise</div>
@@ -196,7 +198,7 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
           {showForm ? (
             <form onSubmit={handleFormSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-sp-text-300 mb-2">
                   Full Name
                 </label>
                 <input
@@ -204,14 +206,14 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                  className="w-full px-4 py-3 bg-sp-bg-800 border border-sp-text-600 rounded-xl text-sp-white placeholder-sp-text-400 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:border-sp-text-500 transition-all duration-200"
                   placeholder="Enter your full name"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-sp-text-300 mb-2">
                   NetSuite Email Address
                 </label>
                 <input
@@ -219,16 +221,16 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
                   id="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                  className="w-full px-4 py-3 bg-sp-bg-800 border border-sp-text-600 rounded-xl text-sp-white placeholder-sp-text-400 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:border-sp-text-500 transition-all duration-200"
                   placeholder="Enter your NetSuite login email"
                   required
                 />
-                <p className="text-xs text-gray-400 mt-2">This must match the email address you use to log into NetSuite</p>
+                <p className="text-xs text-sp-text-400 mt-2">This must match the email address you use to log into NetSuite</p>
               </div>
 
               {planType !== "Basic" && (
                 <div>
-                  <label htmlFor="discountCode" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="discountCode" className="block text-sm font-medium text-sp-text-300 mb-2">
                     Discount Code (Optional)
                   </label>
                   <input
@@ -236,21 +238,21 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
                     id="discountCode"
                     value={formData.discountCode}
                     onChange={(e) => setFormData({ ...formData, discountCode: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                    className="w-full px-4 py-3 bg-sp-bg-800 border border-sp-text-600 rounded-xl text-sp-white placeholder-sp-text-400 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:border-sp-text-500 transition-all duration-200"
                     placeholder="Enter discount code if you have one"
                   />
                 </div>
               )}
 
               {error && (
-                <div className="bg-red-900/20 border border-red-700/30 rounded-xl p-4">
-                  <p className="text-red-300 text-sm">{error}</p>
+                <div className="bg-sp-error-400/20 border border-sp-error-400/30 rounded-xl p-4">
+                  <p className="text-sp-error-400 text-sm">{error}</p>
                 </div>
               )}
 
               <button
                 type="submit"
-                className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="w-full py-3 bg-sp-bg-700 hover:bg-sp-text-600 text-sp-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-offset-2 focus:ring-offset-sp-bg-900"
               >
                 {planType === "Basic" ? "Get Started Free" : "Continue to Checkout"}
               </button>
@@ -258,26 +260,26 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
           ) : isLoading ? (
             <div className="flex items-center justify-center h-48">
               <div className="text-center">
-                <Loader2 className="h-8 w-8 text-gray-400 animate-spin mx-auto mb-4" />
-                <p className="text-gray-300">Creating your checkout...</p>
+                <Loader2 className="h-8 w-8 text-sp-text-400 animate-spin mx-auto mb-4" />
+                <p className="text-sp-text-300">Creating your checkout...</p>
               </div>
             </div>
           ) : error ? (
-            <div className="bg-red-900/20 border border-red-700/30 rounded-xl p-6 text-center">
-              <p className="text-red-300 mb-4">{error}</p>
-              <button onClick={() => setShowForm(true)} className="bg-red-700 hover:bg-red-600 text-white px-6 py-2 rounded-xl transition-all duration-200">
+            <div className="bg-sp-error-400/20 border border-sp-error-400/30 rounded-xl p-6 text-center">
+              <p className="text-sp-error-400 mb-4">{error}</p>
+              <button onClick={() => setShowForm(true)} className="bg-sp-error-400 hover:bg-sp-error-400/80 text-sp-white px-6 py-2 rounded-xl transition-all duration-200">
                 Back to Form
               </button>
             </div>
           ) : checkoutUrl ? (
             <div className="text-center space-y-6">
-              <div className="bg-gray-800 border border-gray-600 rounded-xl p-6">
-                <div className="text-green-400 text-4xl mb-4">✓</div>
-                <h3 className="text-xl font-bold text-white mb-2">{planType === "Basic" ? "Free Plan Ready!" : "Checkout Ready!"}</h3>
-                <p className="text-gray-300 mb-4">
+              <div className="bg-sp-bg-800 border border-sp-text-600 rounded-xl p-6">
+                <div className="text-sp-success-400 text-4xl mb-4">✓</div>
+                <h3 className="text-xl font-bold text-sp-white mb-2">{planType === "Basic" ? "Free Plan Ready!" : "Checkout Ready!"}</h3>
+                <p className="text-sp-text-300 mb-4">
                   Please verify that <strong>{formData.email}</strong> is your current NetSuite email address.
                 </p>
-                <p className="text-gray-400 text-sm">
+                <p className="text-sp-text-400 text-sm">
                   {planType === "Basic"
                     ? "Click below to complete your free subscription using our secure checkout overlay."
                     : "Click below to complete your purchase using our secure checkout overlay."}
@@ -287,14 +289,14 @@ function CheckoutModal({ isOpen, onClose, planType, onPlanChange, onEnterpriseSe
               <div className="space-y-3">
                 <a
                   href={checkoutUrl}
-                  className="lemonsqueezy-button w-full py-4 bg-gray-700 hover:bg-gray-600 text-white font-bold text-lg rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 inline-block text-center"
+                  className="lemonsqueezy-button w-full py-4 bg-sp-bg-700 hover:bg-sp-text-600 text-sp-white font-bold text-lg rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-offset-2 focus:ring-offset-sp-bg-900 inline-block text-center"
                 >
                   {planType === "Basic" ? "Complete Free Subscription" : "Complete Checkout"}
                 </a>
 
                 <button
                   onClick={() => setShowForm(true)}
-                  className="w-full py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  className="w-full py-2 bg-sp-bg-800 hover:bg-sp-bg-700 text-sp-text-300 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-offset-2 focus:ring-offset-sp-bg-900"
                 >
                   Edit Information or Plan
                 </button>

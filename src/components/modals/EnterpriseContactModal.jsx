@@ -69,11 +69,11 @@ function EnterpriseContactModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] font-sans p-4">
-      <div className="bg-gray-900 border border-gray-700 rounded-2xl w-full max-w-md transform transition-all duration-300 scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
+      <div className="bg-sp-bg-900 border border-sp-bg-700 rounded-2xl w-full max-w-md transform transition-all duration-300 scale-100 opacity-100 max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="flex justify-between items-center p-6 border-b border-gray-700">
-          <h2 className="text-2xl font-bold text-white">Enterprise Inquiry</h2>
-          <button onClick={handleClose} className="text-gray-400 hover:text-white transition-colors duration-200">
+        <div className="flex justify-between items-center p-6 border-b border-sp-bg-700">
+          <h2 className="text-2xl font-bold text-sp-white">Enterprise Inquiry</h2>
+          <button onClick={handleClose} className="text-sp-text-400 hover:text-sp-white transition-colors duration-200">
             <X className="h-6 w-6" />
           </button>
         </div>
@@ -83,7 +83,7 @@ function EnterpriseContactModal({ isOpen, onClose }) {
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-sp-text-300 mb-2">
                   Contact Name
                 </label>
                 <input
@@ -91,14 +91,14 @@ function EnterpriseContactModal({ isOpen, onClose }) {
                   id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                  className="w-full px-4 py-3 bg-sp-bg-800 border border-sp-text-600 rounded-xl text-sp-white placeholder-sp-text-400 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:border-sp-text-500 transition-all duration-200"
                   placeholder="Enter your full name"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-sp-text-300 mb-2">
                   Email Address
                 </label>
                 <input
@@ -106,14 +106,14 @@ function EnterpriseContactModal({ isOpen, onClose }) {
                   id="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                  className="w-full px-4 py-3 bg-sp-bg-800 border border-sp-text-600 rounded-xl text-sp-white placeholder-sp-text-400 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:border-sp-text-500 transition-all duration-200"
                   placeholder="Enter your email address"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="accounts" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="accounts" className="block text-sm font-medium text-sp-text-300 mb-2">
                   Number of Accounts
                 </label>
                 <input
@@ -121,7 +121,7 @@ function EnterpriseContactModal({ isOpen, onClose }) {
                   id="accounts"
                   value={formData.accounts}
                   onChange={(e) => setFormData({ ...formData, accounts: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                  className="w-full px-4 py-3 bg-sp-bg-800 border border-sp-text-600 rounded-xl text-sp-white placeholder-sp-text-400 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:border-sp-text-500 transition-all duration-200"
                   placeholder="How many user accounts do you need?"
                   min="1"
                   required
@@ -129,15 +129,15 @@ function EnterpriseContactModal({ isOpen, onClose }) {
               </div>
 
               {error && (
-                <div className="bg-red-900/20 border border-red-700/30 rounded-xl p-4">
-                  <p className="text-red-300 text-sm">{error}</p>
+                <div className="bg-sp-error-400/20 border border-sp-error-400/30 rounded-xl p-4">
+                  <p className="text-sp-error-400 text-sm">{error}</p>
                 </div>
               )}
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="w-full py-3 bg-sp-bg-700 hover:bg-sp-text-600 disabled:bg-sp-bg-800 disabled:cursor-not-allowed text-sp-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-offset-2 focus:ring-offset-sp-bg-900"
               >
                 {loading ? (
                   <div className="flex items-center justify-center">
@@ -151,18 +151,18 @@ function EnterpriseContactModal({ isOpen, onClose }) {
             </form>
           ) : (
             <div className="text-center space-y-6">
-              <div className="bg-gray-800 border border-gray-600 rounded-xl p-6">
-                <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-white mb-2">Inquiry Submitted!</h3>
-                <p className="text-gray-300 mb-4">
+              <div className="bg-sp-bg-800 border border-sp-text-600 rounded-xl p-6">
+                <CheckCircle className="h-16 w-16 text-sp-success-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-sp-white mb-2">Inquiry Submitted!</h3>
+                <p className="text-sp-text-300 mb-4">
                   Thank you for your interest in SuitePreferences Enterprise. We'll be in touch with you shortly at <strong>{submittedEmail}</strong>.
                 </p>
-                <p className="text-gray-400 text-sm">Our team will review your requirements and get back to you within 24 hours with pricing and next steps.</p>
+                <p className="text-sp-text-400 text-sm">Our team will review your requirements and get back to you within 24 hours with pricing and next steps.</p>
               </div>
 
               <button
                 onClick={handleClose}
-                className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="w-full py-3 bg-sp-bg-700 hover:bg-sp-text-600 text-sp-white font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-offset-2 focus:ring-offset-sp-bg-900"
               >
                 Close
               </button>
