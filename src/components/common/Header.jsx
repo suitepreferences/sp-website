@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Shield, Mail, Menu, X, Chrome } from "lucide-react";
+import { Shield, Mail, Menu, X, Chrome, FileText } from "lucide-react";
 import useHeaderScroll from "../../hooks/useHeaderScroll";
 
 function Header({ onNavigate, onPlanSelection, isLoaded = true }) {
@@ -35,6 +35,13 @@ function Header({ onNavigate, onPlanSelection, isLoaded = true }) {
 
           {/* Desktop Navigation */}
           <div className="hidden lg-1000:flex items-center space-x-2">
+            <button
+              onClick={() => handleNavClickWrapper("changelog")}
+              className="inline-flex items-center px-4 py-2 rounded-full text-sp-text-200 hover:bg-sp-bg-800 hover:text-sp-text-100 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-opacity-75"
+            >
+              <FileText className="h-5 w-5 mr-2 group-hover:text-sp-text-100 transition-colors duration-300" />
+              Changelog
+            </button>
             <button
               onClick={() => handleNavClickWrapper("privacy")}
               className="inline-flex items-center px-4 py-2 rounded-full text-sp-text-200 hover:bg-sp-bg-800 hover:text-sp-text-100 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-opacity-75"
@@ -81,6 +88,15 @@ function Header({ onNavigate, onPlanSelection, isLoaded = true }) {
         }`}
       >
         <ul className="flex flex-col items-center space-y-4 py-6">
+          <li>
+            <button
+              onClick={() => handleNavClickWrapper("changelog")}
+              className="w-full inline-flex items-center justify-center px-4 py-2 rounded-full text-sp-text-200 hover:bg-sp-bg-800 hover:text-sp-text-100 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-sp-text-500 focus:ring-opacity-75"
+            >
+              <FileText className="h-5 w-5 mr-2 group-hover:text-sp-text-100 transition-colors duration-300" />
+              Changelog
+            </button>
+          </li>
           <li>
             <button
               onClick={() => handleNavClickWrapper("privacy")}

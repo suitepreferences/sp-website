@@ -1,0 +1,235 @@
+[
+    {
+        "version": "0.12.1",
+        "date": "2025-08-29",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "fix",
+                "title": "Revalidation bug noticed while deploying logo updates",
+                "description": "fix: revalidation bug noticed while deploying logo updates"
+            },
+            {
+                "type": "improvement",
+                "title": "Update all logo branding per Oracle request",
+                "description": "refactor: Update all logo branding per Oracle request"
+            }
+        ]
+    },
+    {
+        "version": "0.12.0",
+        "date": "2025-08-26",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "feature",
+                "title": "Decouple record inspector and suiteconsole, smart feature enablement/disablement",
+                "description": "feat: decouple record inspector and suiteconsole, smart feature enablement/disablement"
+            }
+        ]
+    },
+    {
+        "version": "0.11.0",
+        "date": "2025-08-24",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "feature",
+                "title": "CTA Banner prompts non-validated users to revalidate or signup",
+                "description": "feat: CTA Banner prompts non-validated users to revalidate or signup"
+            }
+        ]
+    },
+    {
+        "version": "0.10.1",
+        "date": "2025-08-24",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "fix",
+                "title": "Prevent custom theme css from resetting when prefsPage loads and is saved",
+                "description": "fix: prevent custom theme css from resetting when prefsPage loads and is saved"
+            }
+        ]
+    },
+    {
+        "version": "0.10.0",
+        "date": "2025-08-23",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "improvement",
+                "title": "Custom theme modal corrections",
+                "description": "chore: custom theme modal corrections"
+            },
+            {
+                "type": "feature",
+                "title": "5 new themes and custom theme builder",
+                "description": "feat: 5 new themes and custom theme builder"
+            }
+        ]
+    },
+    {
+        "version": "0.8.0",
+        "date": "2025-08-22",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "improvement",
+                "title": "Reduce revalidation calls by implementing 24 rule",
+                "description": "perf: Reduce revalidation calls by implementing 24 rule"
+            }
+        ]
+    },
+    {
+        "version": "0.7.0",
+        "date": "2025-08-22",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "feature",
+                "title": "Add popup.html with setup guide and general info",
+                "description": "feat: Add popup.html with setup guide and general info"
+            }
+        ]
+    },
+    {
+        "version": "0.6.0",
+        "date": "2025-08-19",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "feature",
+                "title": "Add enterprise domain plan",
+                "description": "feat: add enterprise domain plan"
+            }
+        ]
+    },
+    {
+        "version": "0.5.3",
+        "date": "2025-08-18",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "fix",
+                "title": "Correct dropdown top padding in redwood mode",
+                "description": "fix: correct dropdown top padding in redwood mode"
+            }
+        ]
+    },
+    {
+        "version": "0.5.2",
+        "date": "2025-08-15",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "fix",
+                "title": "Improved payment system reliability and added failsafe protection for all features",
+                "description": "fix: Improved payment system reliability and added failsafe protection for all features."
+            },
+            {
+                "type": "fix",
+                "title": "Prefs page dropdown behavior on load",
+                "description": "fix: prefs page dropdown behavior on load"
+            },
+            {
+                "type": "feature",
+                "title": "UX updates and sub plan changes",
+                "description": "feat: UX updates and sub plan changes"
+            },
+            {
+                "type": "improvement",
+                "title": "Remove account level validation, update plan naming, add loading overlay for better UX, correct field help descriptions",
+                "description": "Remove account level validation, update plan naming, add loading overlay for better UX, correct field help descriptions."
+            },
+            {
+                "type": "feature",
+                "title": "User validation to lemon-checker API",
+                "description": "feat: user validation to lemon-checker API"
+            },
+            {
+                "type": "improvement",
+                "title": "Swap app screenshot with proper size",
+                "description": "chore: swap app screenshot with proper size"
+            },
+            {
+                "type": "fix",
+                "title": "Remove unused scripting permission from manifest",
+                "description": "fix: remove unused scripting permission from manifest"
+            },
+            {
+                "type": "feature",
+                "title": "Remove host permissions from manifest",
+                "description": "feat: remove host permissions from manifest"
+            },
+            {
+                "type": "fix",
+                "title": "Icon sizes required 16, 48, 128",
+                "description": "fix: icon sizes required 16, 48, 128"
+            },
+            {
+                "type": "improvement",
+                "title": "Reduce manifest permissions to least required",
+                "description": "build: reduce manifest permissions to least required"
+            }
+        ]
+    },
+    {
+        "version": "0.2.1",
+        "date": "2025-05-09",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "fix",
+                "title": "Remove unused scripting permission from manifest",
+                "description": "fix: remove unused scripting permission from manifest"
+            }
+        ]
+    },
+    {
+        "version": "0.2.0",
+        "date": "2025-05-08",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "feature",
+                "title": "Remove host permissions from manifest",
+                "description": "feat: remove host permissions from manifest"
+            },
+            {
+                "type": "fix",
+                "title": "Icon sizes required 16, 48, 128",
+                "description": "fix: icon sizes required 16, 48, 128"
+            },
+            {
+                "type": "improvement",
+                "title": "Reduce manifest permissions to least required",
+                "description": "build: reduce manifest permissions to least required"
+            }
+        ]
+    },
+    {
+        "version": "0.1.1",
+        "date": "2025-05-08",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "fix",
+                "title": "Icon sizes required 16, 48, 128",
+                "description": "fix: icon sizes required 16, 48, 128"
+            }
+        ]
+    },
+    {
+        "version": "0.1.0",
+        "date": "2025-05-08",
+        "type": "minor",
+        "changes": [
+            {
+                "type": "improvement",
+                "title": "Reduce manifest permissions to least required",
+                "description": "build: reduce manifest permissions to least required"
+            }
+        ]
+    }
+]

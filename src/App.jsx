@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import Footer from "./components/common/Footer";
 import PrivacyPage from "./pages/PrivacyPage";
 import ContactPage from "./pages/ContactPage";
+import ChangelogPage from "./pages/ChangelogPage";
 import MobileLoadingScreen from "./components/common/MobileLoadingScreen";
 import { usePageNavigation } from "./hooks/usePageNavigation";
 
@@ -107,6 +108,8 @@ export default function App() {
         return <PrivacyPage />;
       case "contact":
         return <ContactPage />;
+      case "changelog":
+        return <ChangelogPage />;
       default:
         // Fallback to HomePage if currentPage is somehow an unrecognized value
         return <HomePage onPlanSelection={handlePlanSelection} onPageLoad={animationsStarted} />;
