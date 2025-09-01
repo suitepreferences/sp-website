@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!--Gradient Definitions-->
+  <defs>
+    <linearGradient id="featureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color: #1e90ff; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #0066cc; stop-opacity: 1" />
+    </linearGradient>
+
+    <linearGradient id="featureGradientUnused" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color: #f2f2f2; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #fafafa; stop-opacity: 1" />
+    </linearGradient>
+
+    <filter id="hoverShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <!-- blur -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.5" result="blur" />
+      <!-- offset -->
+      <feOffset in="blur" dx="0" dy="0.5" result="offsetBlur" />
+      <!-- shadow color -->
+      <feFlood flood-color="black" flood-opacity="0.25" result="shadowColor" />
+      <feComposite in="shadowColor" in2="offsetBlur" operator="in" result="shadow" />
+      <!-- merge shadow + graphic -->
+      <feMerge>
+        <feMergeNode in="shadow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!--Row 1-->
+  <rect x="4" y="4" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+  <rect x="45" y="4" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+  <rect x="86" y="4" width="38" height="38" rx="7.5" fill="url(#featureGradientUnused)" filter="url(#hoverShadow)" />
+
+  <!--Row 2-->
+  <rect x="4" y="45" width="38" height="38" rx="7.5" fill="url(#featureGradientUnused)" filter="url(#hoverShadow)" />
+  <rect x="45" y="45" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+  <rect x="86" y="45" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+
+  <!--Row 3-->
+  <rect x="4" y="86" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+  <rect x="45" y="86" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+  <rect x="86" y="86" width="38" height="38" rx="7.5" fill="url(#featureGradient)" filter="url(#hoverShadow)" />
+
+  <!--Settings Icon-->
+  <svg x="8" y="90" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M4 10a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+    <path d="M6 4v4" />
+    <path d="M6 12v8" />
+    <path d="M13.958 15.592a2 2 0 1 0 -1.958 2.408" />
+    <path d="M12 4v10" />
+    <path d="M12 18v2" />
+    <path d="M16 7a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+    <path d="M18 4v1" />
+    <path d="M18 9v3" />
+    <path d="M16 19h6" />
+    <path d="M19 16v6" />
+  </svg>
+
+  <!--Inspector Icon-->
+  <svg x="90" y="49" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+    <path d="M21 21l-6 -6" />
+    <path d="M8 8l-2 2l2 2" />
+    <path d="M12 8l2 2l-2 2" />
+  </svg>
+
+  <!--Privacy Icon-->
+  <svg x="49" y="8" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M3 11h8m4 0h6" />
+    <path d="M5 11v-4c0 -.571 .16 -1.105 .437 -1.56m2.563 -1.44h8a3 3 0 0 1 3 3v4" />
+    <path d="M7 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+    <path d="M14.88 14.877a3 3 0 1 0 4.239 4.247m.59 -3.414a3.012 3.012 0 0 0 -1.425 -1.422" />
+    <path d="M10 17h4" />
+    <path d="M3 3l18 18" />
+  </svg>
+
+  <!--Zoom Icon-->
+  <svg x="49" y="90" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M15 13v4" />
+    <path d="M13 15h4" />
+    <path d="M15 15m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+    <path d="M22 22l-3 -3" />
+    <path d="M6 18h-1a2 2 0 0 1 -2 -2v-1" />
+    <path d="M3 11v-1" />
+    <path d="M3 6v-1a2 2 0 0 1 2 -2h1" />
+    <path d="M10 3h1" />
+    <path d="M15 3h1a2 2 0 0 1 2 2v1" />
+  </svg>
+
+  <!--Dark Mode Icon-->
+  <svg x="90" y="90" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+    <path d="M19 11h2m-1 -1v2" />
+  </svg>
+
+  <!--Write Code Icon-->
+  <svg x="8" y="8" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+    <path d="M13.5 6.5l4 4" />
+    <path d="M20 21l2 -2l-2 -2" />
+    <path d="M17 17l-2 2l2 2" />
+  </svg>
+
+  <!--Refresh Icon-->
+  <svg x="49" y="49" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+  </svg>
+
+  <!--Add Feature Icon Middle Left-->
+  <svg x="13" y="54" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 5l0 14" />
+    <path d="M5 12l14 0" />
+  </svg>
+
+  <!--Add Feature Icon Top Right-->
+  <svg x="94.5" y="13" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M12 5l0 14" />
+    <path d="M5 12l14 0" />
+  </svg>
+</svg>
