@@ -196,18 +196,18 @@ function HomePage({ onNavigate, onPlanSelection, onPageLoad }) {
             {/* Navigation Controls - Centered Vertically */}
             <button
               onClick={goToPrevious}
-              className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-sp-bg-800/80 hover:bg-sp-bg-700 text-sp-white rounded-full transition-colors duration-200 shadow-lg backdrop-blur-sm"
+              className="absolute -left-2 top-1/2 -translate-y-1/2 z-50 p-3 sm:p-4 bg-sp-bg-800/30 hover:bg-sp-bg-700/50 text-sp-white rounded-full transition-colors duration-200 shadow-xl backdrop-blur-sm"
             >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
             <button
               onClick={goToNext}
-              className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-sp-bg-800/80 hover:bg-sp-bg-700 text-sp-white rounded-full transition-colors duration-200 shadow-lg backdrop-blur-sm"
+              className="absolute -right-2 top-1/2 -translate-y-1/2 z-50 p-3 sm:p-4 bg-sp-bg-800/30 hover:bg-sp-bg-700/50 text-sp-white rounded-full transition-colors duration-200 shadow-xl backdrop-blur-sm"
             >
-              <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -295,7 +295,7 @@ function HomePage({ onNavigate, onPlanSelection, onPageLoad }) {
 
                 {/* Center Card (Current) */}
                 <div className="z-10 transition-all duration-700 ease-in-out transform scale-100 opacity-100">
-                  <div className="w-[75vw] lg-1000:w-80 xl:w-96">
+                  <div className="w-[70vw] lg-1000:w-80 xl:w-96">
                     {currentCard === 0 && (
                       <PricingCard
                         title="Basic"
@@ -570,7 +570,7 @@ function HomePage({ onNavigate, onPlanSelection, onPageLoad }) {
 
                 {/* Center Card (Current) */}
                 <div className="z-10 transition-all duration-700 ease-in-out transform scale-100 opacity-100">
-                  <div className="w-[75vw] lg-1000:w-80 xl:w-96">
+                  <div className="w-[70vw] lg-1000:w-80 xl:w-96">
                     {currentCard === 0 && (
                       <PricingCard
                         title="Basic"

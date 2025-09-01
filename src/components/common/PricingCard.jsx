@@ -3,7 +3,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 function PricingCard({ title, price, period, features, buttonText, buttonClass, isPopular, onClick, originalPrice, badge }) {
   return (
     <div
-      className={`w-[75vw] sm:w-full sm:max-w-[300px] lg-1000:w-full lg-1000:max-w-[400px] xl:max-w-[500px] mx-auto p-4 sm:p-4 lg-1000:p-6 xl:p-8 rounded-xl bg-gradient-to-br from-sp-bg-800/30 via-sp-bg-900/20 to-sp-bg-950/30 flex flex-col items-center border border-sp-text-600/30 shadow-inner hover:backdrop-blur-sm transition-all duration-300 h-[500px] sm:h-[500px] lg-1000:h-[550px] xl:h-[600px] ${
+      className={`w-[70vw] sm:w-full sm:max-w-[300px] lg-1000:w-full lg-1000:max-w-[400px] xl:max-w-[500px] mx-auto p-4 sm:p-4 lg-1000:p-6 xl:p-8 rounded-xl bg-gradient-to-br from-sp-bg-800/30 via-sp-bg-900/20 to-sp-bg-950/30 flex flex-col items-center border border-sp-text-600/30 shadow-inner hover:backdrop-blur-sm transition-all duration-300 h-[500px] sm:h-[500px] lg-1000:h-[550px] xl:h-[600px] ${
         isPopular ? "ring-2 ring-sp-primary-400" : ""
       }`}
     >
@@ -25,7 +25,7 @@ function PricingCard({ title, price, period, features, buttonText, buttonClass, 
           </span>
         </div>
       )}
-      <ul className="text-sp-text-300 text-base sm:text-lg space-y-3 mb-8 w-full flex-grow">
+      <ul className="text-sp-text-300 text-sm sm:text-lg space-y-3 mb-8 w-full flex-grow">
         {features.map((feature, index) => (
           <li key={index} className={`flex items-center ${feature.included ? "text-sp-text-300" : "line-through text-sp-text-400"}`}>
             {feature.included ? <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-sp-success-400" /> : <XCircle className="h-5 w-5 text-sp-error-400 mr-3 flex-shrink-0" />}
